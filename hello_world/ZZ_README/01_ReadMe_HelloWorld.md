@@ -1,5 +1,7 @@
 # SAPUI5 Walkthrough - Step 1: Hello World
 
+https://sapui5.hana.ondemand.com/#/topic/2680aa9b16c14a00b01261d04babbb39
+
 Bu adımda SAPUI5 projesinin temel yapısını kuruyor ve basit bir “Hello World” sayfası çalıştırıyoruz.
 
 Dikkat terminali en sona bırakabilirsin!!!
