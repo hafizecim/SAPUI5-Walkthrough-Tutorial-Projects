@@ -2,6 +2,8 @@
 
 https://sapui5.hana.ondemand.com/#/topic/776f7352807e4f82b18176c8fbdc0c56
 
+https://ui5.sap.com/test-resources/sap/m/demokit/iconExplorer/webapp/index.html
+
 Bu adımda, dialog penceremizi görsel olarak zenginleştirmek için **SAPUI5 Icon Font** kullanacağız.  
 SAPUI5, 500’den fazla vektör tabanlı ikon ile birlikte gelir. Bu ikonlar kalite kaybı olmadan ölçeklenebilir.
 
