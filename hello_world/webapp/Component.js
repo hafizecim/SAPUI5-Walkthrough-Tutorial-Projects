@@ -1,27 +1,31 @@
 sap.ui.define([
-   "sap/ui/core/UIComponent",
-   "sap/ui/model/json/JSONModel"
+	"sap/ui/core/UIComponent",
+	"sap/ui/model/json/JSONModel"
 ], (UIComponent, JSONModel) => {
-   "use strict";
+	"use strict";
 
-   return UIComponent.extend("ui5.walkthrough.Component", {
-      metadata : {
-         interfaces: ["sap.ui.core.IAsyncContentCreation"],
-         manifest: "json"
-      },
+	return UIComponent.extend("ui5.walkthrough.Component", {
 
-      init() {
-         // call the init function of the parent
-         UIComponent.prototype.init.apply(this, arguments);
+		metadata: {
+			interfaces: ["sap.ui.core.IAsyncContentCreation"],
+			manifest: "json"
+		},
 
-         // set data model
-         const oData = {
-            recipient : {
-               name : "World"
-            }
-         };
-         const oModel = new JSONModel(oData);
-         this.setModel(oModel);
-      }
-   });
+		init() {
+			// call the init function of the parent
+			UIComponent.prototype.init.apply(this, arguments);
+
+			// set data model
+			const oData = {
+				recipient: {
+					name: "World"
+				}
+			};
+			const oModel = new JSONModel(oData);
+			this.setModel(oModel);
+
+			// create the views based on the url/hash
+			this.getRouter().initialize();
+		}
+	});
 });
