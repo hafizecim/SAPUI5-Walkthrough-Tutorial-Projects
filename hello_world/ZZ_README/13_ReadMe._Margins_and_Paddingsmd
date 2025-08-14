@@ -1,0 +1,105 @@
+# Step 13: Margins and Paddings
+
+https://sapui5.hana.ondemand.com/#/topic/17b87fbafb5a4474982760d2a3a73e69
+
+Bu adımda, uygulamamızın içeriği hâlâ **letterbox**'ın kenarlarına yapışık görünüyor.  
+Daha dengeli bir yerleşim elde etmek için **margin** (dış boşluk) ve **padding** (iç boşluk) ekleyeceğiz.  
+
+SAPUI5’in sunduğu **hazır CSS sınıflarını** kullanarak bu boşlukları ekleyeceğiz. Böylece:
+- Tutarlı boyutlandırma adımları
+- **LTR/RTL** (sağdan sola / soldan sağa) desteği
+- Ekran boyutuna göre **responsive** görünüm  
+otomatik sağlanır.
+
+---
+
+## 🎯 Amaç
+- SAPUI5’in standart margin/padding sınıflarını kullanmak.
+- Panel ve içeriğini ekran kenarlarından uzaklaştırmak.
+- Responsive (ekran boyutuna uyumlu) boşluk yönetimi sağlamak.
+
+---
+
+## 📂 Güncellenen Dosya
+
+**`webapp/view/App.view.xml`**
+```xml
+<mvc:View
+	controllerName="ui5.walkthrough.controller.App"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true">
+	<Shell>
+		<App>
+			<pages>
+				<Page title="{i18n>homePageTitle}">
+					<content>
+						<Panel
+							headerText="{i18n>helloPanelTitle}"
+							class="sapUiResponsiveMargin"
+							width="auto">
+							<content>
+								<Button
+									text="{i18n>showHelloButtonText}"
+									press=".onShowHello"
+									class="sapUiSmallMarginEnd"/>
+								<Input
+									value="{/recipient/name}"
+									valueLiveUpdate="true"
+									width="60%"/>
+								<Text
+									text="Hello {/recipient/name}"
+									class="sapUiSmallMargin"/>
+							</content>
+						</Panel>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
+````
+
+---
+
+## 📖 Açıklamalar
+
+1. **sapUiResponsiveMargin**
+
+   * Panel’in etrafına otomatik boşluk ekler.
+   * **Responsive** olduğu için büyük ekranlarda geniş, küçük ekranlarda daha dar boşluk verir.
+   * Telefon dikey modda boşluğu kaldırarak alan tasarrufu yapar.
+   * **Panel genişliği** `auto` olarak ayarlandı; aksi halde margin, varsayılan %100 genişliğe eklenir ve sayfayı taşırır.
+
+2. **sapUiSmallMarginEnd**
+
+   * Butonun sağ tarafına küçük boşluk ekler.
+   * Böylece buton ile input arasında mesafe oluşur.
+
+3. **sapUiSmallMargin**
+
+   * Text kontrolünün etrafına küçük boşluk ekler.
+   * Input ile hizalı durmasını sağlar.
+
+4. **description** kaldırma
+
+   * Önceki adımda Input’un `description` özelliğini kaldırdık.
+   * Onun yerine ayrı bir **Text** kontrolü ekledik.
+
+---
+
+## 🖌 SAPUI5 Margin/Padding Sınıfları
+
+* **sapUiResponsiveMargin** → Etrafına responsive margin ekler.
+* **sapUiSmallMargin / sapUiMediumMargin / sapUiLargeMargin** → Küçük/Orta/Büyük sabit boşluk ekler.
+* **sapUiSmallMarginEnd / sapUiSmallMarginTop / sapUiSmallMarginBottom** → Belirli yönlere boşluk ekler.
+* **sapUiContentPadding** → İç kısımlara (padding) boşluk ekler.
+
+---
+
+## 🔗 İlgili Kaynaklar
+
+* [Using Predefined CSS Margin Classes](https://ui5.sap.com/#/topic/b5d1fcb44e024d09aaf46b1a2a9689cb)
+* [Using Container Content Padding CSS Classes](https://ui5.sap.com/#/topic/79e361bb4c9d4decb59ff9e934df044d)
+
+```
