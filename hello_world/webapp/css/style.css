@@ -11,10 +11,3 @@ html[dir="rtl"] .myAppDemoWT .myCustomButton.sapMBtn {
    font-weight: bold;
 }
 
-.myCustomButton{
-    padding: 10px;
-    background-color: #007bff;
-    height: auto;
-    border-radius: 15px;
-    
-}
