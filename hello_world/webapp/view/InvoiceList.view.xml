@@ -13,15 +13,10 @@
             <Title text="{i18n>invoiceListTitle}"/>
             <ToolbarSpacer/>
             <SearchField 
-               id='search1'
-               width="30%" 
-               search=".onFilterInvoices"/>
-            <SearchField 
-               id='search2'
-               width="40%" 
+               width="50%" 
                search=".onFilterInvoices"/>
          </Toolbar>
-        </headerToolbar>
+      </headerToolbar>
         <items>
             <ObjectListItem
                 core:require="{

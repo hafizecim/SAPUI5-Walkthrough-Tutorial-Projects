@@ -14,17 +14,12 @@ sap.ui.define([
 			this.getView().setModel(oViewModel, "view");
 		},
 
-		onFilterInvoices() {
+		onFilterInvoices(oEvent) {
 			// build filter array
 			const aFilter = [];
-			const sQuery1 = this.byId("search1").getValue();
-			if (sQuery1) {
-				aFilter.push(new Filter("ProductName", FilterOperator.Contains, sQuery1));
-			}
-
-            const sQuery2 = this.byId("search2").getValue();
-			if (sQuery1) {
-				aFilter.push(new Filter("ExtendedPrice", FilterOperator.GT, sQuery2));
+			const sQuery = oEvent.getParameter("query");
+			if (sQuery) {
+				aFilter.push(new Filter("ProductName", FilterOperator.Contains, sQuery));
 			}
 
 			// filter binding
